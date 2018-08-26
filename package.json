@@ -1,0 +1,29 @@
+{
+  "name": "promise",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/promise.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/promises-aplus-tests/lib/cli.js lib/promise.js",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pearlwang1106/promise.git"
+  },
+  "author": "pearl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pearlwang1106/promise/issues"
+  },
+  "homepage": "https://github.com/pearlwang1106/promise#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "promises-aplus-tests": "^2.1.2"
+  }
+}
