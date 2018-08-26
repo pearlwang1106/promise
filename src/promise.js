@@ -55,7 +55,7 @@ let resolutionProcedure = (promise2, x, resolve, reject) => {
                     if (called) return;
                     called = true;
                     // 2.3.3.3.1
-                    resolutionProcedure(promise2, y, resolve, reject)
+                    resolutionProcedure(promise2, y, resolve, reject);
                 }, r => {
                     // 2.3.3.3.3
                     if (called) return;
@@ -79,7 +79,7 @@ let resolutionProcedure = (promise2, x, resolve, reject) => {
         // 规范 2.3.4，x 为基本类型
         resolve(x);
     }
-}
+};
 
 // 2.2 
 Promise.prototype.then = function (onResolved, onRejected) {
@@ -142,11 +142,11 @@ Promise.prototype.then = function (onResolved, onRejected) {
         }
     });
     return promise2;
-}
+};
 
 Promise.prototype.catch = function (onRejected) {
-  return this.then(null, onRejected);
-}
+    return this.then(null, onRejected);
+};
 
 Promise.all = (promises) => {
     return new Promise((resolve, reject) => {
@@ -160,7 +160,7 @@ Promise.all = (promises) => {
             }
         };
         for(let index = 0; index < promises.length; index++) {
-            let p = promises[i];
+            let p = promises[index];
             p.then((value) => {
                 processFn(index, value);
             }, reject);
@@ -177,30 +177,31 @@ Promise.race = (promises) => {
             }, reject);
         }
     });
-}
+};
 
 Promise.resolve = (value) => {
-    return new Promise((resolve, reject) => {
+    // resolve 的时候 reject 暂未用到，所以 去掉了，单测可以通过
+    return new Promise((resolve) => {
         resolve(value);
     });
-}
+};
 
 Promise.reject = (reason) => {
     return new Promise((resolve, reject) => {
         reject(reason);
     });
-}
+};
 
 Promise.defer = Promise.deferred = function () {
-  let dfd = {};
-  dfd.promise = new Promise((resolve, reject) => {
-    dfd.resolve = resolve;
-    dfd.reject = reject;
-  });
-  return dfd;
-}
+    let dfd = {};
+    dfd.promise = new Promise((resolve, reject) => {
+        dfd.resolve = resolve;
+        dfd.reject = reject;
+    });
+    return dfd;
+};
 
-module.exports = Promise
+module.exports = Promise;
 
 
 

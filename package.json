@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node_modules/promises-aplus-tests/lib/cli.js lib/promise.js",
-    "build": "babel src -d lib"
+    "test": "./node_modules/promises-aplus-tests/lib/cli.js lib/promise.js",
+    "build": "babel src -d lib",
+    "eslint": "./node_modules/.bin/eslint src/"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
+    "eslint": "^5.4.0",
     "promises-aplus-tests": "^2.1.2"
   }
 }
